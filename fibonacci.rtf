@@ -1,0 +1,920 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fmodern\fcharset0 CourierNewPSMT;\f2\fmodern\fcharset0 CourierNewPS-ItalicMT;
+\f3\fmodern\fcharset0 CourierNewPS-BoldItalicMT;}
+{\colortbl;\red255\green255\blue255;\red204\green120\blue50;\red169\green183\blue198;\red98\green151\blue85;
+\red138\green101\blue59;\red255\green198\blue109;\red187\green181\blue41;\red106\green135\blue89;\red152\green118\blue170;
+\red128\green128\blue128;\red104\green151\blue187;\red179\green137\blue197;\red5\green99\blue193;}
+{\*\expandedcolortbl;;\csgenericrgb\c80000\c47059\c19608;\csgenericrgb\c66275\c71765\c77647;\csgenericrgb\c38431\c59216\c33333;
+\csgenericrgb\c54118\c39608\c23137;\csgenericrgb\c100000\c77647\c42745;\csgenericrgb\c73333\c70980\c16078;\csgenericrgb\c41569\c52941\c34902;\csgenericrgb\c59608\c46275\c66667;
+\csgenericrgb\c50196\c50196\c50196;\csgenericrgb\c40784\c59216\c73333;\csgenericrgb\c70196\c53725\c77255;\csgenericrgb\c1961\c38824\c75686;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab708
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public interface Fibonacci \{\
+\
+  /**\
+   * Calcule la valeur du terme de la suite de Fibonacci pour le rang indiqu\'e9.\
+   *\
+   * REGLE #0 f(0) = 0\
+   * REGLE #1 f(1) = 1\
+   * REGLE #2 f(n) = f(n-1) + f(n-2) si 2 < n\
+   * REGLE #3 f(n) = Exception si n < 0\
+   *\
+   * Premiers termes : 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597\
+   *\
+   * cf. https://fr.wikipedia.org/wiki/Suite_de_Fibonacci\
+   *\
+   * @param n le rang\
+   * @return la valeur du terme pour le rang indiqu\'e9\
+   * @throws IllegalArgumentException si le rang indiqu\'e9 est n\'e9gatif\
+   */\
+  int calculate(int n);\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public interface \cf3 Fibonacci \{\uc0\u8232 \u8232   
+\f2\i \cf4 /**\uc0\u8232    * Calcule la valeur du terme de la suite de Fibonacci pour le rang indiqu\'e9.\u8232    *\u8232    * REGLE #0 f(0) = 0\u8232    * REGLE #1 f(1) = 1\u8232    * REGLE #2 f(n) = f(n-1) + f(n-2) si 2 < n\u8232    * REGLE #3 f(n) = Exception si n < 0\u8232    * \u8232    * Premiers termes : 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597\u8232    * \u8232    * cf. https://fr.wikipedia.org/wiki/Suite_de_Fibonacci\u8232    *\u8232    * 
+\f3\b @param 
+\f2\b0 \cf5 n \cf4 le rang\uc0\u8232    * 
+\f3\b @return 
+\f2\b0 la valeur du terme pour le rang indiqu\'e9\uc0\u8232    * 
+\f3\b @throws 
+\f2\b0 IllegalArgumentException si le rang indiqu\'e9 est n\'e9gatif\uc0\u8232    */\u8232   
+\f1\i0 \cf2 int \cf6 calculate\cf3 (\cf2 int \cf3 n)\cf2 ;\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+\cf3 \
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveFibonacci implements Fibonacci \{\
+\
+  @Override\
+  public int calculate(int n) \{\
+    throw new UnsopportedOperationException("bient\'f4t");\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveFibonacci \cf2 implements \cf3 Fibonacci \{\uc0\u8232 \u8232   \cf7 @Override\uc0\u8232   \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232     \cf2 throw new \cf3 UnsopportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public abstract class AbstractFibonacciTest \{\
+\
+  protected Fibonacci fibonacci;\
+\
+  @Test\
+  public void testCalculateIndex0() \{\
+    // Arrange\
+    final int n = 0;\
+    final int expected = 0;\
+\
+    // Act\
+    final int result = fibonacci.calculate(n);\
+\
+    // Assert\
+    Assertions.assertEquals(expected, result);\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\sa240\partightenfactor0
+
+\f1\fs20 \cf2 public abstract class \cf3 AbstractFibonacciTest \{\uc0\u8232 \u8232   \cf2 protected \cf3 Fibonacci \cf9 fibonacci\cf2 ;\uc0\u8232 \u8232   \cf3 @Test\uc0\u8232   \cf2 public void \cf6 testCalculateIndex0\cf3 () \{\uc0\u8232     \cf10 // Arrange\uc0\u8232     \cf2 final int \cf3 n = \cf11 0\cf2 ;\uc0\u8232     final int \cf3 expected = \cf11 0\cf2 ;\uc0\u8232 \u8232     \cf10 // Act\uc0\u8232     \cf2 final int \cf3 result = \cf9 fibonacci\cf3 .calculate(n)\cf2 ;\uc0\u8232 \u8232     \cf10 // Assert\uc0\u8232     \cf3 Assertions.assertEquals(expected\cf2 , \cf3 result)\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 class RecursiveFibonacciTest extends AbstractFibonacciTest \{\
+\
+  public RecursiveFibonacciTest() \{\
+    fibonacci = new RecursiveFibonacci();\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\sa240\partightenfactor0
+
+\f1\fs20 \cf2 class \cf3 RecursiveFibonacciTest \cf2 extends \cf3 AbstractFibonacciTest \{\uc0\u8232 \u8232   \cf2 public \cf6 RecursiveFibonacciTest\cf3 () \{\uc0\u8232     fibonacci = \cf2 new \cf3 RecursiveFibonacci()\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculateIndex1() \{\
+  // Arrange\
+  final int n = 1;\
+  final int expected = 0;\
+\
+  // Act\
+  final int result = fibonacci.calculate(n);\
+\
+  // Assert\
+  Assertions.assertEquals(expected, result);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateIndex1\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 1\cf2 ;\uc0\u8232   final int \cf3 expected = \cf11 0\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf2 final int \cf3 result = fibonacci.calculate(n)\cf2 ;\uc0\u8232 \u8232   \cf10 // Assert\uc0\u8232   \cf3 Assertions.assertEquals(expected\cf2 , \cf3 result)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculateIndex2() \{\
+  // Arrange\
+  final int n = 2;\
+  final int expected = 2;\
+\
+  // Act and assert\
+  doTestCalculate(n, expected);\
+\}\
+\
+@Test\
+public void testCalculateIndex3() \{\
+  // Arrange\
+  final int n = 3;\
+  final int expected = 3;\
+\
+  // Act and assert\
+  doTestCalculate(n, expected);\
+\}\
+\
+@Test\
+public void testCalculateIndex4() \{\
+  // Arrange\
+  final int n = 4;\
+  final int expected = 5;\
+\
+  // Act and assert\
+  doTestCalculate(n, expected);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateIndex2\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 2\cf2 ;\uc0\u8232   final int \cf3 expected = \cf11 2\cf2 ;\uc0\u8232 \u8232   \cf10 // Act and assert\uc0\u8232   \cf3 doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\uc0\u8232 \u8232 @Test\u8232 \cf2 public void \cf6 testCalculateIndex3\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 3\cf2 ;\uc0\u8232   final int \cf3 expected = \cf11 3\cf2 ;\uc0\u8232 \u8232   \cf10 // Act and assert\uc0\u8232   \cf3 doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\uc0\u8232 \u8232 @Test\u8232 \cf2 public void \cf6 testCalculateIndex4\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 4\cf2 ;\uc0\u8232   final int \cf3 expected = \cf11 5\cf2 ;\uc0\u8232 \u8232   \cf10 // Act and assert\uc0\u8232   \cf3 doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculate() \{\
+  // Arrange\
+  final int[] expecteds = \{ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987 \};\
+\
+  // Act and assert\
+  for(int n = 0; n < expected.length; n++) \{\
+    doTestCalculate(n, expected[n]);\
+  \}\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\sa240\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculate\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int\cf3 [] expecteds = \{\cf11 0\cf2 , \cf11 1\cf2 , \cf11 1\cf2 , \cf11 2\cf2 , \cf11 3\cf2 , \cf11 5\cf2 , \cf11 8\cf2 , \cf11 13\cf2 , \cf11 21\cf2 , \cf11 34\cf2 , \cf11 55\cf2 , \cf11 89\cf2 , \cf11 144\cf2 , \cf11 233\cf2 , \cf11 377\cf2 , \cf11 610\cf2 , \cf11 987\cf3 \}\cf2 ;\uc0\u8232 \u8232   \cf10 // Act and assert\uc0\u8232   \cf2 for \cf3 (\cf2 int \cf3 n = \cf11 0\cf2 ; \cf3 n < expected.length\cf2 ; \cf3 n++) \{\uc0\u8232     doTestCalculate(n\cf2 , \cf3 expected[n])\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @ParameterizedTest\
+@CsvSource(value = \{"0:0", "1:1", "2:1", "3:2", "4:3", "5:5", "6:7", "7:13", "8:21"\}, delimiter = ':')\
+public void testCalculate(final int n, final int expected) \{\
+  doTestCalculate(n, expected);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @ParameterizedTest\uc0\u8232 @CsvSource(value = \{\cf8 "0:0"\cf2 , \cf8 "1:1"\cf2 , \cf8 "2:1"\cf2 , \cf8 "3:2"\cf2 , \cf8 "4:3"\cf2 , \cf8 "5:5"\cf2 , \cf8 "6:7"\cf2 , \cf8 "7:13"\cf2 , \cf8 "8:21"\cf3 \}\cf2 , \cf3 delimiter = \cf8 ':'\cf3 )\uc0\u8232 \cf2 public void \cf6 testCalculate\cf3 (\cf2 final int \cf3 n\cf2 , final int \cf3 expected) \{\uc0\u8232   doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @ParameterizedTest\
+@CsvFileSource(resources = "/fibonaccicsv", delimiter = ':', numLinesToSkip = 1)\
+public void testCalculate(final int n, final int expected) \{\
+  doTestCalculate(n, expected);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @ParameterizedTest\uc0\u8232 @CsvFileSource(resources = \cf8 "/fibonaccicsv"\cf2 , \cf3 delimiter = \cf8 ':'\cf2 , \cf3 numLinesToSkip = \cf11 1\cf3 )\uc0\u8232 \cf2 public void \cf6 testCalculate\cf3 (\cf2 final int \cf3 n\cf2 , final int \cf3 expected) \{\uc0\u8232   doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab708\ri-46\partightenfactor0
+\cf0 \strike \strikec0 \
+\pard\pardeftab708\ri-46\partightenfactor0
+\cf0 \strike0\striked0 \
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculateNegative() \{\
+  // Arrange\
+  final int n = -1;\
+\
+  // Act\
+  Assertions.assertThrows(IllegalArgumentException.class, () -> \{\
+    fibonacci.calculate(n);\
+  \}\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateNegative\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = -\cf11 1\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf3 Assertions.assertThrows(IllegalArgumentException.\cf2 class, \cf3 () -> \{\uc0\u8232     fibonacci.calculate(\cf12 n\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test(expected = IllegalArgumentException.class)\
+public void testCalculateNegative() \{\
+  // Arrange\
+  final int n = -1;\
+\
+  // Act\
+  fibonacci.calculate(n);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test(expected = IllegalArgumentException.\cf2 class\cf3 )\uc0\u8232 \cf2 public void \cf6 testCalculateNegative\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = -\cf11 1\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf3 fibonacci.calculate(n)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveFibonacci implements Fibonacci \{\
+\
+  @Override\
+  public int calculate(int n) \{\
+    // REGLE 1\
+    if(n == 0) \{\
+      return 0;\
+    \}\
+\
+    throw new UnsupportedOperationException("bient\'f4t");\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveFibonacci \cf2 implements \cf3 Fibonacci \{\uc0\u8232 \u8232   \cf7 @Override\uc0\u8232   \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232     \cf10 // REGLE 1\uc0\u8232     \cf2 if \cf3 (n == \cf11 0\cf3 ) \{\uc0\u8232       \cf2 return \cf11 0\cf2 ;\uc0\u8232     \cf3 \}\uc0\u8232 \u8232     \cf2 throw new \cf3 UnsupportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Override\
+public int calculate(int n) \{\
+  // REGLE 1\
+  if(n == 0) \{\
+    return 0;\
+  \}\
+\
+  if(n == 1) \{\
+    return 1;\
+  \}\
+\
+  throw new UnsupportedOperationException("bient\'f4t");\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf7 @Override\uc0\u8232 \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 // REGLE 1\uc0\u8232   \cf2 if \cf3 (n == \cf11 0\cf3 ) \{\uc0\u8232     \cf2 return \cf11 0\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf2 if \cf3 (n == \cf11 1\cf3 ) \{\uc0\u8232     \cf2 return \cf11 1\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf2 throw new \cf3 UnsupportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Override\
+public int calculate(int n) \{\
+  // REGLE 1\
+  if(n == 0 || n == 1) \{\
+    return n;\
+  \}\
+\
+  throw new UnsupportedOperationException("bient\'f4t");\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf7 @Override\uc0\u8232 \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 // REGLE 1\uc0\u8232   \cf2 if \cf3 (n == \cf11 0 \cf3 || n == \cf11 1\cf3 ) \{\uc0\u8232     \cf2 return \cf3 n\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf2 throw new \cf3 UnsupportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Override\
+public int calculate(int n) \{\
+  ...\
+\
+  return calculate(n \'96 1) + calculate(n \'96 2);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf7 @Override\uc0\u8232 \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 ...\cf3 \uc0\u8232 \u8232   \cf2 return \cf3 calculate(n \'96 \cf11 1\cf3 ) + calculate(n \'96 \cf11 2\cf3 )\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Override\
+public int calculate(int n) \{\
+  // REGLE 4\
+  if(n < 0) \{\
+    throw new IllegalArgumentException("The parameter n can not be negative!");\
+  \}\
+\
+  ...\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf7 @Override\uc0\u8232 \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 // REGLE 4\uc0\u8232   \cf2 if \cf3 (n < \cf11 0\cf3 ) \{\uc0\u8232     \cf2 throw new \cf3 IllegalArgumentException(\cf8 "The parameter n can not be negative!"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 ...\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+\cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculateVeryLong() \{\
+  // Arrange\
+  final int n = 50;\
+\
+  // Act\
+  fibonacci.calculate(n);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateVeryLong\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 50\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf3 fibonacci.calculate(n)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 \
+@Test\
+public void testCalculateVeryLong() \{\
+  // Arrange\
+  final int n = 50;\
+\
+  // Act\
+  // Assertions.assertTimeout(Duration.ofMillis(500), () -> ...\
+  Assertions.assertTimeoutPreemptively(Duration.ofMillis(500), () -> \{\
+    fibonacci.calculate(n);\
+  \});\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateVeryLong\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 50\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   // Assertions.assertTimeout(Duration.ofMillis(500), () -> ...\u8232   \cf3 Assertions.assertTimeoutPreemptively(Duration.ofMillis(\cf11 500\cf3 )\cf2 , \cf3 () -> \{\uc0\u8232     fibonacci.calculate(\cf12 n\cf3 )\cf2 ;\uc0\u8232   \cf3 \})\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 private Map<Integer, Integer> memo = new HashMap<>();\
+\
+@Override\
+public int calculate(int n) \{\
+  ...\
+\
+  final Integer memorized = memo.get(n);\
+  if(memorized != null) \{\
+    return memorized;\
+  \}\
+\
+  // REGLE 3\
+  final int result = calculate(n \'96 1) + calculate(n \'96 2);\
+  memo.put(n, result);\
+\
+  return result;\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 private \cf3 Map<Integer\cf2 , \cf3 Integer> \cf9 memo \cf3 = \cf2 new \cf3 HashMap<>()\cf2 ;\uc0\u8232 \u8232 \cf7 @Override\uc0\u8232 \cf2 public int \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 ...\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+\cf3 \uc0\u8232   \cf2 final \cf3 Integer memorized = \cf9 memo\cf3 .get(n)\cf2 ;\uc0\u8232   if \cf3 (memorized != \cf2 null\cf3 ) \{\uc0\u8232     \cf2 return \cf3 memorized\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 // REGLE 3\uc0\u8232   \cf2 final int \cf3 result = calculate(n \'96 \cf11 1\cf3 ) + calculate(n \'96 \cf11 2\cf3 )\cf2 ;\uc0\u8232   \cf9 memo\cf3 .put(n\cf2 , \cf3 result)\cf2 ;\uc0\u8232 \u8232   return \cf3 result\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 @Test\
+public void testCalculateBigCalue() \{\
+  // Arrange\
+  final int n = 62;\
+\
+  // Act\
+  final int result = fibonacci.calculate(n);\
+  System.out.println(result);\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf3 @Test\uc0\u8232 \cf2 public void \cf6 testCalculateBigCalue\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 62\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf2 final int \cf3 result = fibonacci.calculate(n)\cf2 ;\uc0\u8232   \cf3 System.
+\f2\i \cf9 out
+\f1\i0 \cf3 .println(result)\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public interface Fibonacci \{\
+\
+  BigInteger calculate(int n);\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public interface \cf3 Fibonacci \{\uc0\u8232 \u8232   BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n)\cf2 ;\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 private void doTestCalculate(fina int n, final BigInteger expected) \{\
+  ...\
+\}\
+\
+@ParameterizedTest\
+@CsvFileSource(...)\
+public void testCalculate(final int n, final BigInteger expected) \{\
+  doTestCalculate(n, expected);\
+\}\
+\
+@Test\
+public void testCalculateBigValue() \{\
+  // Arrange\
+  final int n = 62;\
+\
+  // Act\
+  final BigInteger result = fibonacci.calculate(n);\
+\
+  // Assert\
+  Assertions.assertTrue(0 < result.compareTo(BigInteger.ZERO));\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 private void \cf6 doTestCalculate\cf3 (fina \cf2 int \cf3 n\cf2 , final \cf3 BigInteger expected) \{\uc0\u8232   ...\u8232 \}\u8232 \u8232 @ParameterizedTest\u8232 @CsvFileSource(...)\u8232 \cf2 public void \cf6 testCalculate\cf3 (\cf2 final int \cf3 n\cf2 , final \cf3 BigInteger expected) \{\uc0\u8232   doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232 \cf3 \}\uc0\u8232 \u8232 @Test\u8232 \cf2 public void \cf6 testCalculateBigValue\cf3 () \{\uc0\u8232   \cf10 // Arrange\uc0\u8232   \cf2 final int \cf3 n = \cf11 62\cf2 ;\uc0\u8232 \u8232   \cf10 // Act\uc0\u8232   \cf2 final \cf3 BigInteger result = fibonacci.calculate(n)\cf2 ;\uc0\u8232 \u8232   \cf10 // Assert\uc0\u8232   \cf3 Assertions.assertTrue(\cf11 0 \cf3 < result.compareTo(BigInteger.ZERO))\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 private Map<Integer, BigInteger> memo = new HashMap<>();\
+\
+@Override\
+public BigInteger calculate(int n) \{\
+  // REGLE 4\
+  if(n < 0) \{\
+    throw new IllegalArgumentException("The parameter n can not be negative!");\
+  \}\
+\
+  // REGLE 1, 2\
+  if(n == 0 || n == 1) \{\
+    return BigInteger.valueOf(n);\
+  \}\
+\
+  final BigInteger memorized = memo.get(n);\
+  if(memorized != null) \{\
+    return memorized;\
+  \}\
+\
+  // REGLE 3\
+  final BigInteger result = calculate(n \'96 1).add(calculate(n \'96 2));\
+  memo.put(n, result);\
+\
+  return result;\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 private \cf3 Map<Integer\cf2 , \cf3 BigInteger> \cf9 memo \cf3 = \cf2 new \cf3 HashMap<>()\cf2 ;\uc0\u8232 \u8232 \cf7 @Override\uc0\u8232 \cf2 public \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232   \cf10 // REGLE 4\uc0\u8232   \cf2 if \cf3 (n < \cf11 0\cf3 ) \{\uc0\u8232     \cf2 throw new \cf3 IllegalArgumentException(\cf8 "The parameter n can not be negative!"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 // REGLE 1, 2\uc0\u8232   \cf2 if \cf3 (n == \cf11 0 \cf3 || n == \cf11 1\cf3 ) \{\uc0\u8232     \cf2 return \cf3 BigInteger.valueOf(n)\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf2 final \cf3 BigInteger memorized = \cf9 memo\cf3 .get(n)\cf2 ;\uc0\u8232   if \cf3 (memorized != \cf2 null\cf3 ) \{\uc0\u8232     \cf2 return \cf3 memorized\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 // REGLE 3\uc0\u8232   \cf2 final \cf3 BigInteger result = calculate(n \'96 \cf11 1\cf3 ).add(calculate(n \'96 \cf11 2\cf3 ))\cf2 ;\uc0\u8232   \cf9 memo\cf3 .put(n\cf2 , \cf3 result)\cf2 ;\uc0\u8232 \u8232   return \cf3 result\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public interface KBonacci \{\
+\
+  /**\
+   * Calcule la valeur du terme de la suite de K-Bonacci pour le rang n et la r\'e9currence p indiqu\'e9s.\
+   *\
+   * REGLE #0 f(0) = 0\
+   * REGLE #1 f(n) = 1 si 0 < n < p\
+   * REGLE #2 f(n) = f(n-1) + f(n-2) + ... + f(n-p-1) si p < n\
+   * REGLE #3 f(n) = Exception si n < 0 ou si p < 0\
+   *\
+   * Premiers termes pour p=3 : 0, 1, 1, 2, 4, 7, 13, 24, 44, 81...\
+   *\
+   * cf. Tribonacci {\field{\*\fldinst{HYPERLINK "https://fr.wikipedia.org/wiki/Suite_de_Tribonacci"}}{\fldrslt \cf13 \ul \ulc13 https://fr.wikipedia.org/wiki/Suite_de_Tribonacci}}\
+   * @param n le rang\
+   * @param p la r\'e9currence\
+   * @return la valeur du terme pour le rang et la r\'e9currence indiqu\'e9s\
+   * @throws IllegalArgumentException si le rang ou la r\'e9currence indiqu\'e9s sont n\'e9gatifs\
+   */\
+  BigInteger calculate(int n, int p);\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public interface \cf3 KBonacci \{\uc0\u8232 \u8232   
+\f2\i \cf4 /**\uc0\u8232    * Calcule la valeur du terme de la suite de K-Bonacci pour le rang n et la r\'e9currence p indiqu\'e9s.\u8232    *\u8232    * REGLE #0 f(0) = 0\u8232    * REGLE #1 f(n) = 1 si 0 < n < p\u8232    * REGLE #2 f(n) = f(n-1) + f(n-2) + ... + f(n-p-1) si p < n\u8232    * REGLE #3 f(n) = Exception si n < 0 ou si p < 0\u8232    *\u8232    * Premiers termes pour p=3 : 0, 1, 1, 2, 4, 7, 13, 24, 44, 81...\u8232    *\u8232    * cf. Tribonacci https://fr.wikipedia.org/wiki/Suite_de_Tribonacci\u8232    *\u8232    * 
+\f3\b @param 
+\f2\b0 \cf5 n \cf4 le rang\uc0\u8232    * 
+\f3\b @param 
+\f2\b0 \cf5 p \cf4 la r\'e9currence\uc0\u8232    * 
+\f3\b @return 
+\f2\b0 la valeur du terme pour le rang et la r\'e9currence indiqu\'e9s\uc0\u8232    * 
+\f3\b @throws 
+\f2\b0 IllegalArgumentException si le rang ou la r\'e9currence indiqu\'e9s sont n\'e9gatifs\uc0\u8232    */\u8232   
+\f1\i0 \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n\cf2 , int \cf3 p)\cf2 ;\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+\cf3 \
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveKBonacci implements KBonacci \{\
+\
+  @Override\
+  public BigInteger calculate(int n, int p) \{\
+    throw new UnsupportedOperationException("bient\'f4t");\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveKBonacci \cf2 implements \cf3 KBonacci \{\uc0\u8232 \u8232   \cf7 @Override\uc0\u8232   \cf2 public \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n\cf2 , int \cf3 p) \{\uc0\u8232     \cf2 throw new \cf3 UnsupportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232   \
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public abstract class AbstractTribonacciTest \{\
+\
+  protected KBonacci kbonacci;\
+  protected int p;\
+\
+  private void doTestCalculate(final int n, final BigInteger expected) \{\
+    // Act\
+    final BigInteger result = kbonacci.calculate(n, p);\
+\
+    // Assert\
+    Assertions.assertEquals(expected, result);\
+  \}\
+\
+  @parameterizedTest\
+  @CsvFileSource(resources = "/Tribonacci.csv", delimiter = ':', numLinesToSkip = 1)\
+  public void testCalculate(final int n, final BigInteger expected) \{\
+    doTestCalculate(n, expected);\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public abstract class \cf3 AbstractTribonacciTest \{\uc0\u8232 \u8232   \cf2 protected \cf3 KBonacci \cf9 kbonacci\cf2 ;\uc0\u8232   protected int \cf9 p\cf2 ;\uc0\u8232 \u8232   private void \cf6 doTestCalculate\cf3 (\cf2 final int \cf3 n\cf2 , final \cf3 BigInteger expected) \{\uc0\u8232     \cf10 // Act\uc0\u8232     \cf2 final \cf3 BigInteger result = \cf9 kbonacci\cf3 .calculate(n\cf2 , \cf9 p\cf3 )\cf2 ;\uc0\u8232 \u8232     \cf10 // Assert\uc0\u8232     \cf3 Assertions.assertEquals(expected\cf2 , \cf3 result)\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   @parameterizedTest\u8232   @CsvFileSource(resources = \cf8 "/Tribonacci.csv"\cf2 , \cf3 delimiter = \cf8 ':'\cf2 , \cf3 numLinesToSkip = \cf11 1\cf3 )\uc0\u8232   \cf2 public void \cf6 testCalculate\cf3 (\cf2 final int \cf3 n\cf2 , final \cf3 BigInteger expected) \{\uc0\u8232     doTestCalculate(n\cf2 , \cf3 expected)\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveTribonacciTest extends AbstractTribonacciTest \{\
+\
+  @BeforeEach\
+  public void before() \{\
+    kbonacci = new RecursiveKbonacci();\
+    p = 3;\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveTribonacciTest \cf2 extends \cf3 AbstractTribonacciTest \{\uc0\u8232 \u8232   @BeforeEach\u8232   \cf2 public void \cf6 before\cf3 () \{\uc0\u8232     kbonacci = \cf2 new \cf3 RecursiveKbonacci()\cf2 ;\uc0\u8232     \cf3 p = \cf11 3\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveKBonacci implements KBonacci \{\
+\
+  @Override\
+  public BigInteger calculate(int n, int p) \{\
+    // REGLE 0\
+    if(n == 0) \{\
+      return BigInteger.ZERO;\
+    \}\
+\
+    // REGLE 1\
+    if(n < p) \{\
+      return BigInteger.ONE;\
+    \}\
+\
+    throw new UnsupportedOperationException("bient\'f4t");\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveKBonacci \cf2 implements \cf3 KBonacci \{\uc0\u8232 \u8232   \cf7 @Override\uc0\u8232   \cf2 public \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n\cf2 , int \cf3 p) \{\uc0\u8232     \cf10 // REGLE 0\uc0\u8232     \cf2 if \cf3 (n == \cf11 0\cf3 ) \{\uc0\u8232       \cf2 return \cf3 BigInteger.ZERO\cf2 ;\uc0\u8232     \cf3 \}\uc0\u8232 \u8232     \cf10 // REGLE 1\uc0\u8232     \cf2 if \cf3 (n < p) \{\uc0\u8232       \cf2 return \cf3 BigInteger.ONE\cf2 ;\uc0\u8232     \cf3 \}\uc0\u8232 \u8232     \cf2 throw new \cf3 UnsupportedOperationException(\cf8 "bient\'f4t"\cf3 )\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 private Map<Integer, Map<Integer, BigInteger>> memo = new HashMap<>();\
+\
+private BigInteger getMemoized(final int n, final int p \{\
+  final Map<Integer, BigInteger> map = memo.get(p);\
+  return map != null ? map.get(n) : null;\
+\}\
+\
+@Override\
+public BigInteger calculate(int n, int p) \{\
+  // REGLE 3\
+  if(n < 0) \{\
+    throw new IllegalArgumentException("...\'94);\
+  \}\
+  if(p < 0) \{\
+    throw new IllegalArgumentException("...\'94);\
+  \}\
+\
+  // REGLE 0\
+  if(n == 0) \{\
+    return BigInteger.ZERO;\
+  \}\
+\
+  // REGLE 1\
+  if(n < p) \{\
+    return BigInteger.ONE;\
+  \}\
+\
+  final BigInteger memorized = getMemoized(n, p);\
+  if(memorized != nul) \{\
+    return memorized;\
+  \}\
+\
+  BigInteger result = BigInteger.ZERO;\
+  for(int i = 0; i < p; i++) \{\
+    result = result.add(calculate(n \'96 1 \'96 i, p));\
+  \}\
+\
+  memo.computeIfAbsent(p, k -> new HashMap<>())\
+      .put(n, result);\
+\
+  return result;\
+\}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 private \cf3 Map<Integer\cf2 , \cf3 Map<Integer\cf2 , \cf3 BigInteger>> \cf9 memo \cf3 = \cf2 new \cf3 HashMap<>()\cf2 ;\uc0\u8232 \u8232 private \cf3 BigInteger \cf6 getMemoized\cf3 (\cf2 final int \cf3 n\cf2 , final int \cf3 p \{\uc0\u8232   \cf2 final \cf3 Map<Integer\cf2 , \cf3 BigInteger> map = \cf9 memo\cf3 .get(p)\cf2 ;\uc0\u8232   return \cf3 map != \cf2 null \cf3 ? map.get(n) : \cf2 null;\uc0\u8232 \cf3 \}\uc0\u8232 \u8232 \cf7 @Override\uc0\u8232 \cf2 public \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n\cf2 , int \cf3 p) \{\uc0\u8232   \cf10 // REGLE 3\uc0\u8232   \cf2 if \cf3 (n < \cf11 0\cf3 ) \{\uc0\u8232     \cf2 throw new \cf3 IllegalArgumentException(\cf8 "...\'94);\uc0\u8232   \cf3 \}\uc0\u8232   \cf2 if \cf3 (p < \cf11 0\cf3 ) \{\uc0\u8232     \cf2 throw new \cf3 IllegalArgumentException(\cf8 "...\'94);\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 // REGLE 0\uc0\u8232   \cf2 if \cf3 (n == \cf11 0\cf3 ) \{\uc0\u8232     \cf2 return \cf3 BigInteger.ZERO\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf10 // REGLE 1\uc0\u8232   \cf2 if \cf3 (n < p) \{\uc0\u8232     \cf2 return \cf3 BigInteger.ONE\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf2 final \cf3 BigInteger memorized = getMemoized(n\cf2 , \cf3 p)\cf2 ;\uc0\u8232   if \cf3 (memorized != nul) \{\uc0\u8232     \cf2 return \cf3 memorized\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   BigInteger result = BigInteger.ZERO\cf2 ;\uc0\u8232   for \cf3 (\cf2 int \cf3 i = \cf11 0\cf2 ; \cf3 i < p\cf2 ; \cf3 i++) \{\uc0\u8232     result = result.add(calculate(n \'96 \cf11 1 \cf3 \'96 i\cf2 , \cf3 p))\cf2 ;\uc0\u8232   \cf3 \}\uc0\u8232 \u8232   \cf9 memo\cf3 .computeIfAbsent(p\cf2 , \cf3 k -> \cf2 new \cf3 HashMap<>())\uc0\u8232           .put(n\cf2 , \cf3 result)\cf2 ;\uc0\u8232 \u8232   return \cf3 result\cf2 ;\uc0\u8232 \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveKFibonacci\
+    extends RecursiveKBonacci\
+    implements Fibonacci, KBonacci \{\
+\
+  private final static int RECURRENCE = 2;\
+\
+  @Override\
+  public BigInteger calculate(int n) \{\
+    return calculate(n, RECURRENCE);\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveKFibonacci\uc0\u8232         \cf2 extends \cf3 RecursiveKBonacci\uc0\u8232         \cf2 implements \cf3 Fibonacci\cf2 , \cf3 KBonacci \{\uc0\u8232 \u8232   \cf2 private final static int 
+\f2\i \cf9 RECURRENCE 
+\f1\i0 \cf3 = \cf11 2\cf2 ;\uc0\u8232 \u8232   \cf7 @Override\uc0\u8232   \cf2 public \cf3 BigInteger \cf6 calculate\cf3 (\cf2 int \cf3 n) \{\uc0\u8232     \cf2 return \cf3 calculate(n\cf2 , 
+\f2\i \cf9 RECURRENCE
+\f1\i0 \cf3 )\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+\pard\pardeftab708\li-567\ri-613\partightenfactor0
+
+\f1\fs20 \cf0 public class RecursiveKFibonacciTest extends AbstractFibonacciTest \{\
+\
+  @BeforeEach\
+  public void before() \{\
+    fibonacci = new RecursiveKFibonacci();\
+  \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\li-567\ri-619\sa240\partightenfactor0
+
+\f1\fs20 \cf2 public class \cf3 RecursiveKFibonacciTest \cf2 extends \cf3 AbstractFibonacciTest \{\uc0\u8232 \u8232   @BeforeEach\u8232   \cf2 public void \cf6 before\cf3 () \{\uc0\u8232     fibonacci = \cf2 new \cf3 RecursiveKFibonacci()\cf2 ;\uc0\u8232   \cf3 \}\
+\
+\pard\pardeftab708\ri-46\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+}

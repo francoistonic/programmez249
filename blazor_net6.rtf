@@ -1,0 +1,694 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Consolas;\f1\fnil\fcharset0 Calibri;\f2\fnil\fcharset0 Calibri-Light;
+\f3\fmodern\fcharset0 Courier;\f4\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue136;\red102\green0\blue102;\red0\green136\blue0;
+\red33\green37\blue41;\red0\green102\blue102;\red152\green6\blue6;\red30\green30\blue255;\red47\green84\blue150;
+\red0\green0\blue255;\red128\green0\blue128;\red128\green0\blue0;\red163\green21\blue21;\red5\green99\blue193;
+\red255\green0\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c53333;\csgenericrgb\c40000\c0\c40000;\csgenericrgb\c0\c53333\c0;
+\csgenericrgb\c12941\c14510\c16078;\csgenericrgb\c0\c40000\c40000;\csgenericrgb\c59608\c2353\c2353;\csgenericrgb\c11765\c11765\c100000;\csgenericrgb\c18431\c32941\c58824;
+\csgenericrgb\c0\c0\c100000;\csgenericrgb\c50196\c0\c50196;\csgenericrgb\c50196\c0\c0;\csgenericrgb\c63922\c8235\c8235;\csgenericrgb\c1961\c38824\c75686;
+\csgenericrgb\c100000\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab708
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 <div\cf0  \cf3 class\cf0 =\cf4 "content px-4"\cf2 >\cf0 \
+        \cf2 <ErrorBoundary>\cf0 \
+            \cf2 <MyComponent />\cf0 \
+        \cf2 </ErrorBoundary>\cf0 \
+    \cf2 </div>
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 \
+<ErrorBoundary>\cf0 \
+    \cf2 <ChildContent>\cf0 \
+        \cf2 <MyComponent />\cf0 \
+    \cf2 </ChildContent>\cf0 \
+    \cf2 <ErrorContent>\cf0 \
+        \cf2 <p\cf0  \cf3 class\cf0 =\cf4 "my-error"\cf2 >Voici une erreur personnalis\'e9e.</p>\cf0 \
+    \cf2 </ErrorContent>\cf0 \
+\cf2 </ErrorBoundary>
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 \
+<body>\cf0 \
+    \cf2 <component\cf0  \cf3 type\cf0 =\cf4 "typeof(App)"\cf0  \cf3 render-mode\cf0 =\cf4 "ServerPrerendered"\cf0  \cf2 />\cf0 \
+    ...\
+    @* Persist the component state after all component invocations *@\
+    \cf2 <persist-component-state\cf0  \cf2 />\cf0 \
+\cf2 </body>
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf6 \
+@page\cf0  \cf7 "/fetchdata"\cf0 \
+\cf6 @implements\cf0  \cf3 IDisposable\cf0 \
+\cf6 @inject\cf0  \cf3 ComponentApplicationState\cf0  \cf3 ApplicationState\cf0 \
+\
+...\
+\
+\cf6 @code\cf0  \{\
+    \cf8 protected\cf0  \cf8 override\cf0  \cf8 async\cf0  \cf3 Task\cf0  \cf3 OnInitializedAsync\cf0 ()\
+    \{\
+        \cf3 ApplicationState\cf0 .\cf3 OnPersisting\cf0  += \cf3 PersistForecasts\cf0 ;\
+        \cf8 if\cf0  (!\cf3 ApplicationState\cf0 .\cf3 TryRedeemPersistedState\cf0 (\cf7 "fetchdata"\cf0 , \cf8 out\cf0  \cf8 var\cf0  data))\
+        \{\
+            forecasts = \cf8 await\cf0  \cf3 ForecastService\cf0 .\cf3 GetForecastAsync\cf0 (\cf3 DateTime\cf0 .\cf3 Now\cf0 );\
+        \}\
+        \cf8 else\cf0 \
+        \{\
+            \cf8 var\cf0  options = \cf8 new\cf0  \cf3 JsonSerializerOptions\cf0 \
+            \{\
+                \cf3 PropertyNamingPolicy\cf0  = \cf3 JsonNamingPolicy\cf0 .\cf3 CamelCase\cf0 ,\
+                \cf3 PropertyNameCaseInsensitive\cf0  = \cf8 true\cf0 ,\
+            \};\
+            forecasts = \cf3 JsonSerializer\cf0 .\cf3 Deserialize\cf0 <\cf3 WeatherForecast\cf0 []>(data, options);\
+        \}\
+    \}\
+\
+    \cf8 private\cf0  \cf3 Task\cf0  \cf3 PersistForecasts\cf0 ()\
+    \{\
+        \cf3 ApplicationState\cf0 .\cf3 PersistAsJson\cf0 (\cf7 "fetchdata"\cf0 , forecasts);\
+        \cf8 return\cf0  \cf3 Task\cf0 .\cf3 CompletedTask\cf0 ;\
+    \}\
+\
+    \cf8 void\cf0  \cf3 IDisposable\cf0 .\cf3 Dispose\cf0 ()\
+    \{\
+        \cf3 ApplicationState\cf0 .\cf3 OnPersisting\cf0  -= \cf3 PersistForecasts\cf0 ;\
+    \}\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\
+\pard\pardeftab708\ri-52\sl259\slmult1\sb40\partightenfactor0
+
+\f2\fs26 \cf9 R\'e9duction de la taille de t\'e9l\'e9chargement\
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab708\ri-52\partightenfactor0
+\cf0 \
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 <svg\cf0  \cf3 width\cf0 =\cf4 "200"\cf0  \cf3 height\cf0 =\cf4 "200"\cf0  \cf3 xmlns\cf0 =\cf4 "http://www.w3.org/2000/svg"\cf2 >\cf0 \
+    \cf2 <rect\cf0  \cf3 x\cf0 =\cf4 "0"\cf0  \cf3 y\cf0 =\cf4 "0"\cf0  \cf3 rx\cf0 =\cf4 "10"\cf0  \cf3 ry\cf0 =\cf4 "10"\cf0  \cf3 width\cf0 =\cf4 "200"\cf0  \cf3 height\cf0 =\cf4 "200"\cf0  \cf3 stroke\cf0 =\cf4 "black"\cf0  \cf3 fill\cf0 =\cf4 "none"\cf0  \cf2 />\cf0 \
+    \cf2 <foreignObject\cf0  \cf3 x\cf0 =\cf4 "20"\cf0  \cf3 y\cf0 =\cf4 "20"\cf0  \cf3 width\cf0 =\cf4 "160"\cf0  \cf3 height\cf0 =\cf4 "160"\cf2 >\cf0 \
+        \cf2 <p>\cf0 @message\cf2 </p>\cf0 \
+    \cf2 </foreignObject>\cf0 \
+\cf2 </svg>\cf0 \
+\
+@code \{\
+    string message = "Wow, it's so nice that this text wraps like it's HTML...because that's what it is!";\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\partightenfactor0
+
+\f1 \cf0 \
+\
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 <PageTitle>\cf0 @title\cf2 </PageTitle>\cf0 \
+\
+\cf2 <HeadContent>\cf0 \
+    \cf2 <meta\cf0  \cf3 name\cf0 =\cf4 "description"\cf0  \cf3 content\cf0 =\cf4 "@description"\cf2 >\cf0 \
+\cf2 </HeadContent>\cf0 \
+\
+@code \{\
+    private string description = "Description set by component";\
+    private string title = "Title set by component";\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\partightenfactor0
+
+\f1 \cf0 \
+\
+\
+JavaScript\'a0: \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf8 function\cf0  jsToDotNetStreamReturnValue() \{\
+    \cf8 return\cf0  \cf8 new\cf0  \cf3 Uint8Array\cf0 (\cf6 10000000\cf0 );\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\partightenfactor0
+
+\f1 \cf0 \
+C#\'a0:\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf0   \cf8 var\cf0  dataReference = \cf8 await\cf0  \cf3 JSRuntime\cf0 .\cf3 InvokeAsync\cf0 <\cf3 IJSStreamReference\cf0 >(\cf7 "jsToDotNetStreamReturnValue"\cf0 );\
+  \cf8 using\cf0  \cf8 var\cf0  dataReferenceStream = \cf8 await\cf0  dataReference.\cf3 OpenReadStreamAsync\cf0 (maxAllowedSize: \cf6 10\cf0 _000_000);\
+\
+  \cf4 // Write JS Stream to disk\cf0 \
+  \cf8 var\cf0  outputPath = \cf3 Path\cf0 .\cf3 Combine\cf0 (\cf3 Path\cf0 .\cf3 GetTempPath\cf0 (), \cf7 "file.txt"\cf0 );\
+  \cf8 using\cf0  \cf8 var\cf0  outputFileStream = \cf3 File\cf0 .\cf3 OpenWrite\cf0 (outputPath);\
+  \cf8 await\cf0  dataReferenceStream.\cf3 CopyToAsync\cf0 (outputFileStream); 
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf0 \
+\
+[\cf3 EventHandler\cf0 (\cf7 "oncustompaste"\cf0 , \cf8 typeof\cf0 (\cf3 CustomPasteEventArgs\cf0 ), enableStopPropagation: \cf8 true\cf0 , enablePreventDefault: \cf8 true\cf0 )]\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf8 public\cf0  \cf8 static\cf0  \cf8 class\cf0  \cf3 EventHandlers\cf0 \
+\{\
+    \cf4 // This static class doesn't need to contain any members. It's just a place where we can put\cf0 \
+    \cf4 // [EventHandler] attributes to configure event types on the Razor compiler. This affects the\cf0 \
+    \cf4 // compiler output as well as code completions in the editor.\cf0 \
+\}\
+\
+\cf8 public\cf0  \cf8 class\cf0  \cf3 CustomPasteEventArgs\cf0  : \cf3 EventArgs\cf0 \
+\{\
+    \cf4 // Data for these properties will be supplied by custom JavaScript logic\cf0 \
+    \cf8 public\cf0  \cf3 DateTime\cf0  \cf3 EventTimestamp\cf0  \{ \cf8 get\cf0 ; \cf8 set\cf0 ; \}\
+    \cf8 public\cf0  \cf8 string\cf0  \cf3 PastedData\cf0  \{ \cf8 get\cf0 ; \cf8 set\cf0 ; \}\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf0 \
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf6 @page\cf0  \cf7 "/"\cf0 \
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf7 <p>\cf3 Try\cf0  pasting \cf8 into\cf0  the following text box:</p>\
+<input \cf6 @oncustompaste\cf0 =\cf7 "HandleCustomPaste"\cf0  />\
+\cf7 <p>\cf6 @message\cf0 </p>\
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf6 @code\cf0  \{\
+    \cf8 string\cf0  message;\
+\
+    \cf8 void\cf0  \cf3 HandleCustomPaste\cf0 (\cf3 CustomPasteEventArgs\cf0  eventArgs)\
+    \{\
+        message = $\cf7 "At \{eventArgs.EventTimestamp.ToShortTimeString()\}, you pasted: \{eventArgs.PastedData\}"\cf0 ;\
+    \}\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf4 <!-- You should add this directly after the <script> tag for blazor.server.js or blazor.webassembly.js -->\cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf2 <script>\cf0 \
+    \cf3 Blazor\cf0 .registerCustomEventType(\cf7 'custompaste'\cf0 , \{\
+        browserEventName: \cf7 'paste'\cf0 ,\
+        createEventArgs: event => \{\
+            \cf4 // This example only deals with pasting text, but you could use arbitrary JavaScript APIs\cf0 \
+            \cf4 // to deal with users pasting other types of data, such as images\cf0 \
+            \cf8 return\cf0  \{\
+                eventTimestamp: \cf8 new\cf0  \cf3 Date\cf0 (),\
+                pastedData: event.clipboardData.getData(\cf7 'text'\cf0 )\
+            \};\
+        \}\
+    \});\
+\cf2 </script>
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\
+\
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf10 <
+\f4\b \cf11 BlazorDataGrid
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ShowTotalResult
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 TheadClass
+\f3\b0 \cf10 ="thead-dark"\cf0  
+\f4\b \cf11 Translation
+\f3\b0 \cf10 ="\cf0 @translate\cf10 "
+\f1\fs22 \cf0 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf0                 
+\f4\b \cf11 ShowPageSelector
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 PageSelector
+\f3\b0 \cf10 ="\cf0 @PageSelector\cf10 "\cf0  
+\f4\b \cf11 Editable
+\f3\b0 \cf10 ="false"\cf0  
+\f4\b \cf11 RowSelector
+\f3\b0 \cf10 ="true">
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 <
+\f4\b \cf11 BlazorDataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="Date"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 Format
+\f3\b0 \cf10 ="dd/MM/yyyy"><\cf12 strong\cf10 >\cf0 Date\cf10 </\cf12 strong\cf10 ></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="TemperatureC"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="TemperatureC"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="TemperatureF"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="TemperatureF"\cf0  
+\f4\b \cf11 DropdownFilter
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 ReadOnly
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="Summary"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Summary"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 =""\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Test"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="false"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 =""\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Test clic"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="false"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 </
+\f4\b \cf11 BlazorDataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 <
+\f4\b \cf11 GridRow
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="\{\{Date\}\}"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="<strong>\{\{TemperatureC\}\}</strong>"\cf0  
+\f4\b \cf11 ValidationPattern
+\f3\b0 \cf10 ="^[-]?\\d+$"\cf0  
+\f4\b \cf11 LabelError
+\f3\b0 \cf10 ="\cf0 @translate[\cf13 "labelError"\cf0 ]\cf10 "\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="\{\{TemperatureF\}\}"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="<a href='https://nullrefexception.com/'>\{\{Summary\}\}</a>"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Context
+\f3\b0 \cf10 ="cellcontext">
+\f1\fs22 \cf0 \
+
+\f3\fs19             \cf10 <\cf12 a\cf0  {\field{\*\fldinst{HYPERLINK "https://nullrefexception.com/"}}{\fldrslt \cf14 \ul \ulc14 href='https://nullrefexception.com/'>@cellcontext.Summary</a}}\cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 </
+\f4\b \cf11 Cell
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 Context
+\f3\b0 \cf10 ="cellcontext">
+\f1\fs22 \cf0 \
+
+\f3\fs19             \cf10 <\cf12 button\cf0  \cf15 style\cf10 ="cursor:pointer"\cf0  \cf15 class\cf10 ="btn btn-primary"\cf0  @\cf11 onclick\cf10 ="\cf0 @(() => {\field{\*\fldinst{HYPERLINK "%22mailto:TestGetContext(cellcontext))%22%3E@cellcontext.TemperatureC%3C/button%22%20%5Ch"}}{\fldrslt \cf14 \ul \ulc14 TestGetContext(cellcontext))">@cellcontext.TemperatureC</button}}\cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 </
+\f4\b \cf11 Cell
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 </
+\f4\b \cf11 GridRow
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+\pard\pardeftab708\ri-52\sl257\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf10 </
+\f4\b \cf11 BlazorDataGrid
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1\fs22 \cf0 \
+\
+\
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf10 <
+\f4\b \cf11 BlazorDataGrid
+\f3\b0 \cf0  
+\f4\b \cf11 Items
+\f3\b0 \cf10 ="\cf0 @forecasts\cf10 "\cf0  
+\f4\b \cf11 ShowTotalResult
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 TheadClass
+\f3\b0 \cf10 ="thead-dark"\cf0  
+\f4\b \cf11 Translation
+\f3\b0 \cf10 ="\cf0 @translate\cf10 "
+\f1\fs22 \cf0 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf0                 
+\f4\b \cf11 ShowPageSelector
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 PageSelector
+\f3\b0 \cf10 ="\cf0 @PageSelector\cf10 "\cf0  
+\f4\b \cf11 Editable
+\f3\b0 \cf10 ="false"\cf0  
+\f4\b \cf11 RowSelector
+\f3\b0 \cf10 ="true">
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 <
+\f4\b \cf11 BlazorDataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="Date"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 Format
+\f3\b0 \cf10 ="dd/MM/yyyy"><\cf12 strong\cf10 >\cf0 Date\cf10 </\cf12 strong\cf10 ></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="TemperatureC"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="TemperatureC"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="TemperatureF"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="TemperatureF"\cf0  
+\f4\b \cf11 DropdownFilter
+\f3\b0 \cf10 ="true"\cf0  
+\f4\b \cf11 ReadOnly
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 ="Summary"\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Summary"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="true"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 =""\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Test"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="false"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf0  
+\f4\b \cf11 ColumnName
+\f3\b0 \cf10 =""\cf0  
+\f4\b \cf11 DisplayColumnName
+\f3\b0 \cf10 ="Test clic"\cf0  
+\f4\b \cf11 Filter
+\f3\b0 \cf10 ="false"></
+\f4\b \cf11 DataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 </
+\f4\b \cf11 BlazorDataGridColumn
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 <
+\f4\b \cf11 GridRow
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="\{\{Date\}\}"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="<strong>\{\{TemperatureC\}\}</strong>"\cf0  
+\f4\b \cf11 ValidationPattern
+\f3\b0 \cf10 ="^[-]?\\d+$"\cf0  
+\f4\b \cf11 LabelError
+\f3\b0 \cf10 ="\cf0 @translate[\cf13 "labelError"\cf0 ]\cf10 "\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="\{\{TemperatureF\}\}"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Content
+\f3\b0 \cf10 ="<a href='https://nullrefexception.com/'>\{\{Summary\}\}</a>"\cf0  \cf10 />
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Context
+\f3\b0 \cf10 ="cellcontext">
+\f1\fs22 \cf0 \
+
+\f3\fs19             \cf10 <\cf12 a\cf0  {\field{\*\fldinst{HYPERLINK "https://nullrefexception.com/"}}{\fldrslt \cf14 \ul \ulc14 href='https://nullrefexception.com/'>@cellcontext.Summary</a}}\cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 </
+\f4\b \cf11 Cell
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 <
+\f4\b \cf11 Cell
+\f3\b0 \cf0  
+\f4\b \cf11 Context
+\f3\b0 \cf10 ="cellcontext">
+\f1\fs22 \cf0 \
+
+\f3\fs19             \cf10 <\cf12 button\cf0  \cf15 style\cf10 ="cursor:pointer"\cf0  \cf15 class\cf10 ="btn btn-primary"\cf0  @\cf11 onclick\cf10 ="\cf0 @(() => {\field{\*\fldinst{HYPERLINK "%22mailto:TestGetContext(cellcontext))%22%3E@cellcontext.TemperatureC%3C/button%22%20%5Ch"}}{\fldrslt \cf14 \ul \ulc14 TestGetContext(cellcontext))">@cellcontext.TemperatureC</button}}\cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19         \cf10 </
+\f4\b \cf11 Cell
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+
+\f3\fs19     \cf10 </
+\f4\b \cf11 GridRow
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+\pard\pardeftab708\ri-52\sl257\slmult1\sa160\partightenfactor0
+
+\f3\fs19 \cf10 </
+\f4\b \cf11 BlazorDataGrid
+\f3\b0 \cf10 >
+\f1\fs22 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf0 \
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf2 <DynamicComponent\cf0  \cf3 Type\cf0 =\cf4 "@someType"\cf0  \cf3 Parameters\cf0 =\cf4 "@myDictionaryOfParameters"\cf0  \cf2 />\cf0 \
+\
+@code \{\
+    Type someType = ...\
+    IDictionary\cf2 <string\cf0 , \cf3 object\cf2 >\cf0  myDictionaryOfParameters = ...\
+\}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+
+\f0\fs20 \cf0 \
+\
+[\cf3 Parameter\cf0 ]\
+[\cf3 SupplyParameterFromQuery\cf0 ]\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab708\ri-52\partightenfactor0
+\cf8 public\cf0  \cf8 int\cf0 ? \cf3 Page\cf0  \{ \cf8 get\cf0 ; \cf8 set\cf0 ; \}
+\fs22 \cf5 \
+\pard\pardeftab708\ri-52\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \
+\pard\pardeftab708\ri-52\sl257\slmult1\sa160\qj\partightenfactor0
+\cf0 \
+}

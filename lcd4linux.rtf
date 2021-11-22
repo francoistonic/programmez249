@@ -1,0 +1,498 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica-Bold;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\info
+{\author S\'e9bastien Colas}}\paperw11905\paperh16837\margl1134\margr1134\margb1134\margt1134\vieww22820\viewh17200\viewkind1\viewscale165
+\hyphauto1\hyphfactor90
+\deftab709
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0\fs20 \cf0 Variables \{
+\f1 \
+
+\f0    seconde     1000
+\f1 \
+
+\f0    five_secs   5000
+\f1 \
+
+\f0    minute     60000
+\f1 \
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Display LCD2USB \{
+\f1 \
+
+\f0     Driver    'LCD2USB'
+\f1 \
+
+\f0     Size      '16x2'
+\f1 \
+
+\f0     Backlight 0
+\f1 \
+
+\f0     Icons     1
+\f1 \
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Widget Hello \{
+\f1 \
+
+\f0     class 'Text'
+\f1 \
+
+\f0     expression 'Hello LCD'
+\f1 \
+
+\f0     width 9
+\f1 \
+\}\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Layout MyLayout \{
+\f1 \
+
+\f0     Row1 \{
+\f1 \
+
+\f0         Col1 'Hello'
+\f1 \
+
+\f0     \}
+\f1 \
+
+\f0     Row2 \{
+\f1 \
+
+\f0         Col2 'Hello'
+\f1 \
+
+\f0     \}
+\f1 \
+\}\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Widget Date \{
+\f1 \
+
+\f0     class 'Text'
+\f1 \
+
+\f0     expression strftime('%d/%m',time())
+\f1 \
+
+\f0     width 5
+\f1 \
+
+\f0     align 'L'
+\f1 \
+
+\f0     update minute
+\f1 \
+\}\
+\
+
+\f0 Widget Time \{
+\f1 \
+
+\f0     class 'Text'
+\f1 \
+
+\f0     expression strftime('%H:%M',time())
+\f1 \
+
+\f0     width 5
+\f1 \
+
+\f0     align 'L'
+\f1 \
+
+\f0     update second
+\f1 \
+\}\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Layout MyLayout \{
+\f1 \
+
+\f0     Row1 \{
+\f1 \
+
+\f0         Col12 'Date'
+\f1 \
+
+\f0     \}
+\f1 \
+
+\f0     Row2 \{
+\f1 \
+
+\f0         Col12 'Time'
+\f1 \
+
+\f0     \}
+\f1 \
+\}\
+\pard\pardeftab709\ri-1\sb200\sa120\partightenfactor0
+
+\f2\b\fs32 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0\b0\fs20 \cf0 Widget Busy \{
+\f1 \
+
+\f0     class 'Text'
+\f1 \
+
+\f0     expression proc_stat::cpu('busy', second)
+\f1 \
+
+\f0     postfix '%'
+\f1 \
+
+\f0     width 5
+\f1 \
+
+\f0     precision 0
+\f1 \
+
+\f0     align 'R'
+\f1 \
+
+\f0     update second
+\f1 \
+\}\
+
+\f0 Layout MyLayout \{
+\f1 \
+
+\f0     Row1 \{
+\f1 \
+
+\f0         Col1 'Busy'
+\f1 \
+
+\f0         Col12 'Date'
+\f1 \
+
+\f0     \}
+\f1 \
+
+\f0     Row2 \{
+\f1 \
+
+\f0         Col12 'Time'
+\f1 \
+
+\f0     \}
+\f1 \
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+\cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Plugin MySQL \{
+\f1 \
+
+\f0     server 'meteo.local'
+\f1 \
+
+\f0     port 3306
+\f1 \
+
+\f0     user 'user'
+\f1 \
+
+\f0     password 'password'
+\f1 \
+
+\f0     database 'meteo'
+\f1 \
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Widget MySQLTemp \{
+\f1 \
+
+\f0     class 'Text'
+\f1 \
+
+\f0     expression MySQL::query('SELECT temperature FROM meteo.sensor_data WHERE sensor_id=1 order by date DESC limit 1;')
+\f1 \
+
+\f0     width 4
+\f1 \
+
+\f0     update minute
+\f1 \
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Widget Degree \{
+\f1 \
+
+\f0     class 'Icon'
+\f1 \
+
+\f0     Bitmap \{
+\f1 \
+
+\f0         Row1 '.**..'
+\f1 \
+
+\f0         Row2 '*..*.'
+\f1 \
+
+\f0         Row3 '*..*.'
+\f1 \
+
+\f0         Row4 '.**..'
+\f1 \
+
+\f0         Row5 '.....'
+\f1 \
+
+\f0         Row6 '.....'
+\f1 \
+
+\f0         Row7 '.....'
+\f1 \
+
+\f0         Row8 '.....'
+\f1 \
+
+\f0     
+\f1 \}\
+\}\
+\
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 Layout MyLayout \{
+\f1 \
+
+\f0     Row1 \{
+\f1 \
+
+\f0         Col1 'Busy'
+\f1 \
+
+\f0         Col12 'Date'
+\f1 \
+
+\f0     
+\f1 \}\
+
+\f0     Row2 \{
+\f1 \
+
+\f0         Col1 'MySQLTemp'
+\f1 \
+
+\f0         Col5 'Degree'
+\f1 \
+
+\f0         Col12 'Time'
+\f1 \
+
+\f0     
+\f1 \}\
+\}\
+\pard\pardeftab709\ri-1\sb200\sa120\partightenfactor0
+
+\f2\b\fs32 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0\b0\fs20 \cf0 #!/bin/bash
+\f1 \
+
+\f0 MY_APP_ID="NetworkMonitoring.app"
+\f1 \
+
+\f0 MY_APP_TOKEN="4uZTLMMwSyiPB42tSCWLpSSZbXIYi+d+F32tVMx2j1p8oSUUk4Awr/OMZne4RRlY"
+\f1 \
+
+\f0 . /home/seb/freeboxos-bash-api/freeboxos_bash_api.sh
+\f1 \
+
+\f0 login_freebox "$MY_APP_ID" "$MY_APP_TOKEN"
+\f1 \
+
+\f0 answer=$(call_freebox_api '/connection/')
+\f1 \
+
+\f0 rate_down=$(get_json_value_for_key "$answer" 'result.rate_down')
+\f1 \
+
+\f0 echo "$rate_down 1048576" | awk '\{printf "%.1f", $1 / $2\}' | tr , .
+\f1 \
+\pard\pardeftab709\ri-1\sl276\slmult1\sa140\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs20 \cf0 #!/bin/bash
+\f1 \
+
+\f0 MY_APP_ID="NetworkMonitoring.app"
+\f1 \
+
+\f0 MY_APP_TOKEN="4uZTLMMwSyiPB42tSCWLpSSZbXIYi+d+F32tVMx2j1p8oSUUk4Awr/OMZne4RRlY"
+\f1 \
+
+\f0 . /home/seb/freeboxos-bash-api/freeboxos_bash_api.sh
+\f1 \
+
+\f0 login_freebox "$MY_APP_ID" "$MY_APP_TOKEN"
+\f1 \
+
+\f0 answer=$(call_freebox_api '/connection/')
+\f1 \
+
+\f0 rate_up=$(get_json_value_for_key "$answer" 'result.rate_up')
+\f1 \
+
+\f0 echo "$rate_up 1024" | awk '\{printf "%d", $1 / $2\}' | tr , .
+\f1 \
+\pard\pardeftab709\ri-1\sb140\sa120\partightenfactor0
+
+\f2\b\fs28 \cf0 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0\b0\fs18 \cf0 Widget DownRate \{
+\f1\fs20 \
+
+\f0\fs18     class 'Text'
+\f1\fs20 \
+
+\f0\fs18     expression exec('/home/seb/freeboxos-bash-api/rate_down.sh', five_secs)
+\f1\fs20 \
+
+\f0\fs18     prefix 'D'
+\f1\fs20 \
+
+\f0\fs18     width 4
+\f1\fs20 \
+
+\f0\fs18     align 'R'
+\f1\fs20 \
+
+\f0\fs18     update five_secs
+\f1\fs20 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs18 \cf0 \}
+\fs20 \
+
+\fs18 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0 \cf0 Widget UpRate \{
+\f1\fs20 \
+
+\f0\fs18     class 'Text'
+\f1\fs20 \
+
+\f0\fs18     expression exec('/home/seb/freeboxos-bash-api/rate_up.sh', five_secs)
+\f1\fs20 \
+
+\f0\fs18     prefix 'U'
+\f1\fs20 \
+
+\f0\fs18     width 4
+\f1\fs20 \
+
+\f0\fs18     align 'R'
+\f1\fs20 \
+
+\f0\fs18     update five_secs
+\f1\fs20 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs18 \cf0 \}
+\fs20 \
+
+\fs18 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\f0 \cf0 Layout MyLayout \{
+\f1\fs20 \
+
+\f0\fs18     Row1 \{
+\f1\fs20 \
+
+\f0\fs18         Col1 'Busy'
+\f1\fs20 \
+
+\f0\fs18         Col7 'UpRate'
+\f1\fs20 \
+
+\f0\fs18         Col12 'Date'
+\f1\fs20 \
+
+\f0\fs18     \}
+\f1\fs20 \
+
+\f0\fs18     Row2 \{
+\f1\fs20 \
+
+\f0\fs18         Col1 'MySQLTemp'
+\f1\fs20 \
+
+\f0\fs18         Col5 'Degree'
+\f1\fs20 \
+
+\f0\fs18         Col7 'DownRate'
+\f1\fs20 \
+
+\f0\fs18         Col12 'Time'
+\f1\fs20 \
+
+\f0\fs18     \}
+\f1\fs20 \
+\pard\pardeftab709\ri-1\partightenfactor0
+
+\fs18 \cf0 \}
+\fs20 \
+}
